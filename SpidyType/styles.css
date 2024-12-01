@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root{
+    --bgColor : #333;
+    --textPrimary : #fff;
+    --textSecondary : #666;
+    --primaryColor : #fd4;
+}
+
+body {
+    font-family: 'Roboto',sans-serif;
+    background-color: var(--bgColor);
+    color: var(--textPrimary);
+    font-size: 1.4rem;
+}
+
+main {
+    width: 900px;
+    margin: 50px auto;
+}
+
+h1 {
+    color: var(--primaryColor);
+    cursor: default;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 svg {
+    width: 40px;
+    fill: var(--primaryColor);
+}
+
+#userBtn{
+    background-color: var(--bgColor);
+    border: 0;
+    color: var(--textSecondary);
+    cursor: pointer;
+}
+
+#user svg {
+    width: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+    fill: var(--textSecondary);
+}
+
+#header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px 6px 30px;
+}
+
+#buttons {
+    text-align: right;
+}
+
+#info {
+    color: var(--primaryColor);
+}
+
+#newGameBtn {
+    background: rgba(255, 255, 255, .2);
+    border: 0;
+    color: rgba(255, 255, 255, .5);
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+div#game {
+    line-height: 35px;
+    height: 105px;
+    overflow: hidden;
+    position: relative;
+}
+
+div#game:focus {
+    outline: 0;
+}
+
+#words{
+    filter: blur(5px);
+    color: var(--textSecondary);
+}
+
+#game:focus #words{
+    filter: blur(0);
+}
+#focus-error svg {
+    width: 10px;
+    fill: var(--textPrimary);
+}
+#focus-error { 
+    position: absolute;
+    inset: 0;
+    text-align: center;
+    padding-top: 40px;
+    font-size: smaller;
+}
+
+#game:focus #focus-error{
+    display: none;
+}
+
+div.word{
+    display: inline-block;
+    font-family: 'Roboto mono', monospace;
+    margin: 0px 5px;
+}
+
+.letter.correct {
+    color: #fff;
+}
+
+.letter.incorrect {
+    color: #f55;
+}
+
+@keyframes blink {
+    0%{
+        opacity: 1;
+    }
+
+    50%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+#cursor {
+    display: none;
+    width: 2px;
+    height: 1.6rem;
+    background-color: var(--primaryColor);
+    position: fixed;
+    top: 198px;
+    left: 43px;
+    animation: blink 0.3s infinite;
+}
+
+#game:focus #cursor {
+    display: block;
+}
+
+#game.over #words {
+    opacity: .5;
+    filter: blur(0);
+}
+
+#game.over:focus #cursor {
+    display: none;
+}
+
+#game.over #focus-error {
+    display: none;
+}
+
+#footer {
+    position: fixed;
+    bottom: 20px;
+    left: 70px;
+    margin-top: 50px;
+    text-align: center;
+    font-size: 14px;
+    text-align: left;
+    opacity: .7;
+}
+
+#footer:hover {
+    opacity: 1;
+}
+
+#footer a {
+    text-decoration: none;
+    color: var(--textSecondary);
+    margin: 0 10px;
+}
+
+#footer svg {
+    width: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+    fill: var(--textSecondary);
+}
